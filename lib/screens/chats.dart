@@ -14,13 +14,13 @@ class Chats extends StatelessWidget {
         stream: FirebaseFirestore.instance.collection("chats").snapshots(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.hasError) {
-            return Center(
+            return const Center(
               child: Text("Something went wrong"),
             );
           }
 
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
+            return const Center(
               child: Text("Loading"),
             );
           }
@@ -28,7 +28,7 @@ class Chats extends StatelessWidget {
           if (snapshot.hasData) {
             return CustomScrollView(
               slivers: [
-                CupertinoSliverNavigationBar(
+                const CupertinoSliverNavigationBar(
                   largeTitle: Text("Chats"),
                 ),
                 SliverList(
